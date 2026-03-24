@@ -30,7 +30,7 @@ nav ul li a {
 .home {
     text-align: center;
     padding: 100px;
-    background: #ff4d4d;
+    background: #d34dff;
     color: white;
 }
 
@@ -62,7 +62,7 @@ section {
 }
 
 .skill {
-    background: #ff4d4d;
+    background: #a94dff;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
