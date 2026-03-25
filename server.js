@@ -14,6 +14,9 @@ const pool = new Pool({
     rejectUnauthorized: false
   }
 });
+pool.connect()
+  .then(() => console.log("Database Connected Successfully"))
+  .catch(err => console.log("Database Connection Error:", err));
 
 // Create table automatically
 pool.query(`
