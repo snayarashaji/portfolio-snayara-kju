@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-snayara-kju",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000p\u0000o\u0000r\u0000t\u0000f\u0000o\u0000l\u0000i\u0000o\u0000-\u0000s\u0000n\u0000a\u0000y\u0000a\u0000r\u0000a\u0000-\u0000k\u0000j\u0000u\u0000\r\u0000 \u0000",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snayarashaji/portfolio-snayara-kju.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/snayarashaji/portfolio-snayara-kju/issues"
+  },
+  "homepage": "https://github.com/snayarashaji/portfolio-snayara-kju#readme",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
+  }
+}
