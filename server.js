@@ -30,6 +30,15 @@ pool.query(`
 .then(() => console.log("Table created"))
 .catch(err => console.log(err));
 
+app.get("/db-test", async (req, res) => {
+  try {
+    await pool.query("SELECT NOW()");
+    res.send("Database Working");
+  } catch (err) {
+    res.send("Database Error");
+  }
+});
+
 // test route
 app.get("/", (req, res) => {
   res.send("Server running");
