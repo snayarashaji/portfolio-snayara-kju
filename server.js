@@ -14,9 +14,11 @@ const pool = new Pool({
     rejectUnauthorized: false
   }
 });
+
+// Check database connection
 pool.connect()
   .then(() => console.log("Database Connected Successfully"))
-  .catch(err => console.log("Database Connection Error:", err));
+  .catch(err => console.log("Database Error:", err));
 
 // Create table automatically
 pool.query(`
@@ -27,9 +29,15 @@ pool.query(`
     message TEXT
   );
 `)
-.then(() => console.log("Table created"))
+.then(() => console.log("Table Created"))
 .catch(err => console.log(err));
 
+// Home route
+app.get("/", (req, res) => {
+  res.send("Server running");
+});
+
+// Database test route
 app.get("/db-test", async (req, res) => {
   try {
     await pool.query("SELECT NOW()");
@@ -39,12 +47,7 @@ app.get("/db-test", async (req, res) => {
   }
 });
 
-// test route
-app.get("/", (req, res) => {
-  res.send("Server running");
-});
-
-// contact form route
+// Contact form API
 app.post("/contact", async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -57,7 +60,17 @@ app.post("/contact", async (req, res) => {
     res.send("Message saved successfully");
   } catch (err) {
     console.log(err);
-    res.send("Error saving message");
+    res.status(500).send("Error saving message");
+  }
+});
+
+// View all messages
+app.get("/messages", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM messages ORDER BY id DESC");
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).send("Error fetching messages");
   }
 });
 
